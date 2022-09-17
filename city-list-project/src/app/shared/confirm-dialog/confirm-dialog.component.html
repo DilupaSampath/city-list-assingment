@@ -1,0 +1,19 @@
+<span *ngIf="iconType" mat-dialog-title align="center">
+  <mat-icon class="icon-font-size" [color]="iconColor">{{iconType}}</mat-icon>
+</span>
+
+
+<h1 mat-dialog-title align="center">
+  <span>{{title}}</span>
+</h1>
+
+
+<div mat-dialog-content align="center">
+  <p>{{message}}</p>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button *ngIf="hasCancelButton" mat-stroked-button mat-dialog-close [color]="colorSecondary" (click)="onDismiss()">No</button>
+  <button mat-raised-button [color]="colorPrimary" (click)="onConfirm()">{{primaryText}}</button>
+
+</div>

@@ -1,0 +1,70 @@
+mat-form-field {
+    width: 90%;
+  }
+  .id-name {
+    width: 35%;
+    margin-right: 5px;
+  }
+  .btn-sec {
+    margin-right: 5rem !important;
+    text-align: right;
+    margin-top: 1.5em;
+  }
+  .Update-btn {
+    margin: 5px;
+  }
+  .Discard-btn {
+    margin: 5px;
+  }
+  
+  @media (max-width: 800px) {
+    .btn-sec {
+      margin-right: 1rem !important;
+    }
+  }
+  @media (max-width: 600px) {
+    .btn-sec {
+      margin-right: 1rem !important;
+    }
+  }
+  
+
+
+
+
+
+  .close-button{
+    float: right;
+    top:-24px;
+    right:-24px;
+  }
+  .view-mode{
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+  }
+  
+  .close-icon {
+    transition: 0.5s ease-in-out;
+  }
+  
+  .close-icon:hover {
+    transform: rotate(180deg);
+  }
+  
+  ::ng-deep .icon-outside .close-button{
+    float: right;
+    top:-52px;
+    right:-52px;
+  }
+  
+  ::ng-deep .icon-outside .mat-dialog-container {
+   overflow: unset
+  }
+
+  .mat-card {
+    max-height: 500px;
+    overflow-y: hidden;
+  }
+  
+  

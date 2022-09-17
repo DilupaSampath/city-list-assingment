@@ -1,0 +1,13 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+  <div fxFlex="95%">
+        <app-pagination-table
+        [tableTitle]="'City List'"
+        [displayedColumns] = "displayedColumns"
+        [tableColumDataModel]="tableColumDataModel"
+        [commonPaginationModel] = "cityPaginationModel"
+        [dataSource]="dataSource"
+        (viewEvent)="viewContact($event)"
+        (editEvent)="editContact($event)"
+        ></app-pagination-table>
+  </div>
+</div>

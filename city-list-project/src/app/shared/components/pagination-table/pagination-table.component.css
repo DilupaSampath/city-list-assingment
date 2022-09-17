@@ -1,0 +1,32 @@
+table {
+    width: 100%;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+.example-header-image {
+
+    background-size: cover;
+}
+
+
+.w-75 {
+    width: 75px;
+}
+
+.w-100 {
+    width: 190px;
+}
+
+.w-test {
+    width: 130px;
+}
+
+.w-90 {
+    width: 90%;
+}
+.w-10{
+    width: 5%;
+}

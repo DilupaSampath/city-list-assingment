@@ -1,0 +1,49 @@
+<app-auth-nav-bar></app-auth-nav-bar>
+
+<div class="container login-container" fxLayout="row" fxLayoutAlign="center center">
+    <form [formGroup]="loginForm" fxFlex="30%" fxFlex.sm="50%" fxFlex.xs="90%">
+        <mat-toolbar class="login-toolbar" color="primary">City List Project Login</mat-toolbar>
+        <mat-card>
+            <mat-card-title></mat-card-title>
+            <mat-card-subtitle>Welcome back, Please login to continue</mat-card-subtitle>
+            <mat-card-content>
+
+                <mat-form-field class="full-width">
+                    <input id="userNameInput" matInput placeholder="User name" formControlName="userName" autocomplete="userName"
+                        type="text">
+
+                    <mat-error id="invalidUserNameError" *ngIf="loginForm.controls['userName'].hasError('userName')">
+                        Please enter a valid user name
+                    </mat-error>
+                    <mat-error id="requiredUserNameError" *ngIf="loginForm.controls['userName'].hasError('required')">
+                        User name is
+                        <strong>required</strong>
+                    </mat-error>
+
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input id="passwordInput" matInput placeholder="Password" formControlName="password" type="password"
+                        autocomplete="current-password">
+                    <mat-error id="requiredPasswordError" *ngIf="loginForm.controls['password'].hasError('required')">
+                        Password is
+                        <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <div class="full-width">
+                    <mat-slide-toggle formControlName="rememberMe">Remember my user name</mat-slide-toggle>
+                </div>
+
+            </mat-card-content>
+
+            <mat-card-actions class="login-actions">
+                <button mat-raised-button id="login" color="primary" [disabled]="loginForm.invalid || loading"
+                    (click)="login()">Login</button>
+            </mat-card-actions>
+
+        </mat-card>
+
+        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    </form>
+</div>

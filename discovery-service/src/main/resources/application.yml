@@ -1,0 +1,16 @@
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  datacenter: Colombo-SriLanka
+  environment: production
+server:
+  port: 8761
+spring:
+  application:
+    name: DISCOVERY-SERVICE
+  cloud:
+    config:
+      import-check:
+        enabled: false

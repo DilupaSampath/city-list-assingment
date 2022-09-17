@@ -1,0 +1,60 @@
+server:
+  port: 8760
+
+security:
+  oauth2:
+    client:
+      client-id: mobile
+      client-secret: pin
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+  instance:
+    hostname: localhost
+
+spring:
+  application:
+    name: GATEWAY-SERVICE
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+      routes:
+        - id: city-service
+          uri: lb://CITY-SERVICE
+          predicates:
+            - Path=/cities/**
+        - id: profile-service
+          uri: lb://PROFILE-SERVICE
+          predicates:
+            - Path=/user/**
+        - id: auth-service
+          uri: lb://AUTHORIZATION-SERVER
+          predicates:
+            - Path=/oauth/**
+        - id: discovery-service
+          uri: lb://DISCOVERY-SERVICE
+          predicates:
+            - Path=/eureka/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - mappings
+          - env
+          - health
+          - info

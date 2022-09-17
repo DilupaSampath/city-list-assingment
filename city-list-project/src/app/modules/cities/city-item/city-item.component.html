@@ -1,0 +1,66 @@
+<div>
+    
+    <ng-container *ngIf="isEditMode">
+      <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+        <mat-icon class="close-icon" color="warn" (click)="closeDialog()">close</mat-icon>
+      </button>
+        <div class="add-title">
+            <h2 class="primary">Edit city</h2>
+          </div>
+          <div>
+            <form [formGroup]="cityForm" (change)="formChanged()">
+              <mat-grid-list cols="2" [cols]="breakpoint" rowHeight="85px" (window:resize)="onResize($event)">
+                <mat-grid-tile>
+                  <div class="text-inside">
+                    <mat-form-field>
+                      <input matInput placeholder="City Name" value={{cityName}} formControlName="name" required>
+                      <mat-error *ngIf="cityForm.controls['name'].hasError('required')">
+                        City name cannot be empty
+                      </mat-error>
+                      <mat-error *ngIf="cityForm.controls['name'].hasError('pattern')">
+                        Please enter valid city name
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <div class="text-inside">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Image" value={{cityImage}} formControlName="photo" required>
+                      <mat-error *ngIf="cityForm.controls['name'].hasError('required')">
+                        URL cannot be empty
+                      </mat-error>
+                      <mat-error *ngIf="cityForm.controls['photo'].hasError('pattern')">
+                        Please enter valid URL
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </mat-grid-tile>
+            
+              </mat-grid-list>
+        
+              <div class="btn-sec">
+                <button mat-stroked-button type="button" class="Discard-btn" (click)="closeDialog()">Cancel</button>
+                <button [disabled]="cityForm.invalid || loading || (!cityForm.dirty)" mat-raised-button type="submit" color="primary" class="Update-btn" (click)="openDialog()">Save</button>
+              </div>
+              <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+            </form>
+          </div>
+    </ng-container>
+
+    <ng-container *ngIf="!isEditMode">
+        <!-- <mat-card class="example-card"> -->
+          <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+            <mat-icon class="close-icon" color="warn" (click)="closeDialog()">close</mat-icon>
+          </button>
+            <mat-card-header>
+
+              <mat-card-title>{{cityName}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image style="max-height: 500px;" [src]="isfailImage ? 'assets/images/image-load-fail.jpg' : cityImage" alt="Photo of a Shiba Inu">
+
+          <!-- </mat-card> -->
+       
+    </ng-container>
+  </div>
+  

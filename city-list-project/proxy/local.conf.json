@@ -1,0 +1,28 @@
+{
+    "/authenticate/": {
+        "target": "http://localhost:8760/",
+        "secure": false,
+        "logLevel": "info",
+        "pathRewrite": {
+            "/authenticate": ""
+          }
+    },
+
+    "/city-service/": {
+        "target": "http://localhost:8760/",
+        "secure": false,
+        "logLevel": "info",
+        "pathRewrite": {
+            "/city-service": ""
+          }
+    },
+
+    "/user-service/": {
+        "target": "http://localhost:8760/",
+        "secure": false,
+        "logLevel": "info",
+        "pathRewrite": {
+            "/user-service": ""
+          }
+    }
+}

@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: PROFILE-SERVICE
+server:
+  port: 0
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    hostname: localhost

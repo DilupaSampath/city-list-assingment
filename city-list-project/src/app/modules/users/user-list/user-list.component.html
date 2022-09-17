@@ -1,0 +1,31 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+  <div fxFlex="95%">
+
+    <!-- <mat-card>
+      <mat-card-content>
+        <h2>Users</h2>
+
+
+        <div class="container" fxLayout="row" fxLayoutAlign="center none">
+          <div fxFlex="50%" class="text-center no-records animate">
+            <mat-icon>people_outline</mat-icon>
+            <p>No users exist.</p>
+          </div>
+          <mat-icon> </mat-icon>
+        </div>
+
+      </mat-card-content>
+    </mat-card> -->
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <app-pagination-table
+    [tableTitle]="'Users'"
+    [displayedColumns] = "displayedColumns"
+    [tableColumDataModel]="tableColumDataModel"
+    [commonPaginationModel] = "userPaginationModel"
+    [dataSourceClientSide]="dataSource"
+    [isServerSidePagination]="false"
+    (editEvent)="editEvent($event)"
+    (viewEvent)="viewEvent($event)"
+    ></app-pagination-table>
+  </div>
+</div>
